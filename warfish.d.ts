@@ -135,16 +135,14 @@ type WarfishMapImage = {
     data: ArrayBuffer;
 };
 declare module "warfish" {
-    export const Warfish = {
-        getCards: (gameId: number) => Promise<WarfishCards>,
-        getPlayers: (gameId: number) => Promise<WarfishPlayers>,
-        getStage: (gameId: number) => Promise<number>,
-        getTerritories: (gameId: number) => Promise<WarfishTerritories>,
-        getRules: (gameId: number) => Promise<WarfishRules>,
-        getMap: (gameId: number) => Promise<WarfishMap>,
-        getBoard: (gameId: number) => Promise<WarfishBoard>,
-        getContinents: (gameId: number) => Promise<WarfishContinents>,
-        getHistoryLog: (gameId: number) => Promise<WarfishHistoryLog>,
-        getMapImage: (gameId: number) => Promise<WarfishMapImage>,
-    }
-}
+    export function getCards(gameId: number): Promise<WarfishCards>;
+    export function getPlayers(gameId: number): Promise<WarfishPlayers>;
+    export function getStage(gameId: number): Promise<number>;
+    export function getTerritories(gameId: number): Promise<WarfishTerritories>;
+    export function getRules(gameId: number): Promise<WarfishRules>;
+    export function getMap(gameId: number): Promise<WarfishMap>;
+    export function getBoard(gameId: number): Promise<WarfishBoard>;
+    export function getContinents(gameId: number): Promise<WarfishContinents>;
+    export function getHistoryLog(gameId: number): Promise<WarfishHistoryLog>;
+    export function getMapImage(gameId: number): Promise<WarfishMapImage>;
+};
