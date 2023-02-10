@@ -6,6 +6,7 @@
   "repository": "git@github.com:chad3814/warfish.git",
   "author": "Chad Walker <chad@chad-cat-lore-eddie.com>",
   "license": "MIT",
+  "types": "warfish.d.ts",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsc"
