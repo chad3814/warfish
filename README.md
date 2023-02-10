@@ -112,7 +112,10 @@ Warfish.getContinents(gameId: number) => Array<{
 Warfish.getHistoryLog(gameId: number) => Array<{
     id: number;
     time: Date;
-    action: HistoryAction;
+    action: 'ATTACK' | 'ELIMINATION_BONUS' | 'CAPTURE' | 'DECLINE' | 'ELIMINATION' | 'TRANSFER' | 'AWARDED_CARD' | 'CAPTURED_CARDS' |
+            'CAPTURE_RESERVE_UNITS' | 'JOIN' | 'BAO_SEAT_ORDER' | 'BAO_TERRITORY_SELECT' | 'MESSAGE' | 'NEW_GAME' | 'ASSIGN_SEAT' |
+            'PLACE_UNIT' | 'BAO_TRANSFER' | 'RESHUFFLE' | 'START' | 'SELECT_TERRITORY' | 'USE_CARDS' | 'BAO_ATTACK' | 'WIN' |
+            'NEUTRAL_TERRITORY_SELECT' | 'BONUS_UNITS' | 'SURRENDER' | 'BOOTED' | 'GAME_TERMINATED' | 'TEAM_WIN',
     seat?: number;
     logVersion?: number;
     territoryId?: number;
@@ -138,3 +141,4 @@ Warfish.getMapImage(gameId: number) => {
     mimeType: string,
     data: ArrayBuffer,
 }
+```
