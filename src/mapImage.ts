@@ -2,7 +2,7 @@ import {getBoard} from "./details";
 
 export async function getMapImage(gameId: number) {
     const board = await getBoard(gameId);
-    const url = new URL(`http://as1.warfish.net/b${board.id}g0s0.png`);
+    const url = new URL(`http://as1.warfish.net/b${board.id}i0g0s0.png`);
     let res = await fetch(url);
     if (res.ok) {
         const data = await res.arrayBuffer();
@@ -13,7 +13,7 @@ export async function getMapImage(gameId: number) {
             data,
         };
     }
-    url.pathname.replace('.png', '.jpg');
+    url.pathname = url.pathname.replace('.png', '.jpg');
     res = await fetch(url);
     if (res.ok) {
         const data = await res.arrayBuffer();
@@ -24,7 +24,7 @@ export async function getMapImage(gameId: number) {
             data,
         };
     }
-    url.pathname.replace('.jpg', '.gif');
+    url.pathname = url.pathname.replace('.jpg', '.gif');
     res = await fetch(url);
     if (res.ok) {
         const data = await res.arrayBuffer();
