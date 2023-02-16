@@ -48,7 +48,7 @@ type stateBoardArea = {
 };
 
 const cache = new Cache();
-const THIRTY_DAYS = 30 * 24 * 60 * 60 * 1000;``
+const ONE_HOUR = 60 * 60 * 1000;
 
 async function getDetails(gameId: number) {
     if (!Object.hasOwn(process.env, 'WARFISH_COOKIE')) {
@@ -95,7 +95,7 @@ async function getDetails(gameId: number) {
         teamPlace: details._content.rules.teamplaceunits === '1',
         allowReturnToAttack: details._content.rules.returntoattack === '1',
     };
-    cache.add('warfish-details-rules', String(gameId), rules, THIRTY_DAYS);
+    cache.add('warfish-details-rules', String(gameId), rules, ONE_HOUR);
 
 
     // Map
@@ -137,7 +137,7 @@ async function getDetails(gameId: number) {
             }
         }),
     };
-    cache.add('warfish-details-map', String(gameId), map, THIRTY_DAYS);
+    cache.add('warfish-details-map', String(gameId), map, ONE_HOUR);
 
 
     // Board
@@ -152,7 +152,7 @@ async function getDetails(gameId: number) {
             };
         }),
     };
-    cache.add('warfish-details-board', String(gameId), board, THIRTY_DAYS);
+    cache.add('warfish-details-board', String(gameId), board, ONE_HOUR);
 
 
     // Continents
@@ -164,7 +164,7 @@ async function getDetails(gameId: number) {
             territoryIds: c.cids.split(',').map((cid: string) => parseInt(cid, 10)),
         };
     });
-    cache.add('warfish-details-continents', String(gameId), continents, THIRTY_DAYS);
+    cache.add('warfish-details-continents', String(gameId), continents, ONE_HOUR);
 };
 
 export async function getRules(gameId: number) {
